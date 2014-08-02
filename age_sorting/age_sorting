@@ -1,0 +1,17 @@
+
+
+    1
+ 2    6
+3 4    7
+   5
+
+
+def lca node, value1, value2
+	return 0 if node = null
+	
+	node = value1 == node.value || value2 == node.value ? 1 : 0
+	is_on_left = lca node.left, value1, value2 
+	is_on_right = lca node.right, value1, value2
+
+	return is_on_left + is_on_right +
+end
