@@ -1,10 +1,10 @@
 
-Two numbers sum
-Given an array of numbers and a target number, write a function to check if two numbers in the list sum equal to the target number.
-
-You should ask / they may ask - solve before looking at this. (select to view)
-What if the list is sorted?__________________________________
-Can you do it without using additional memory?________________
+#Two numbers sum
+#Given an array of numbers and a target number, write a function to check if two numbers in the list sum equal to the target number.
+#
+#You should ask / they may ask - solve before looking at this. (select to view)
+#What if the list is sorted?
+#Can you do it without using additional memory?
 
 def two_number_sum array, n 
 	array.sort!

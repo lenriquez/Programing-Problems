@@ -7,11 +7,65 @@
 
 
 def lca node, value1, value2
-	return 0 if node = null
+	return nil if node = null
 	
 	node = value1 == node.value || value2 == node.value ? 1 : 0
 	is_on_left = lca node.left, value1, value2 
 	is_on_right = lca node.right, value1, value2
 
-	return is_on_left + is_on_right +
+	node = value1 == node.value || value2 == node.value ? 1 : 0
+	return is_on_left + is_on_right + node
+end
+
+def mergesort array
+	if a
+end  
+
+000
+001
+010
+
+def next_binary_number array
+	
+	i=0
+	while a[i] == 1 &&  i < array.size do
+		a[i]=0
+		a += 1
+	end
+
+	if i < array.size
+		a[i] = 1
+	end
+
+end
+
+1<-2  3->4
+|  |  |
+def reverse_single_linked_list list
+
+	first_pointer = list
+	second_pointer = list.next p
+	third_pointer = list.next.next
+	second_pointer = first_pointer
+	third_pointer
+end
+
+
+def max_profit array
+	for i in 0..array.size-1
+		for j in i..array.size-1
+			if profit < array[x]-array[i]
+				profit = array[x]-array[i]
+			end
+		end
+	end
+end
+
+def max_profit_2 array
+	profit, min_value = 99999999, 0
+	for i in 0..array.size - 1
+		profit = [profit, array[i] - min_value].max
+		min_value = [ array[i], min_value ].min
+	end
+	return profit
 end
