@@ -69,3 +69,5 @@ def max_profit_2 array
 	end
 	return profit
 end
+
+
