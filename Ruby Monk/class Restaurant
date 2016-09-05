@@ -1,0 +1,26 @@
+class Restaurant
+  def initialize(menu)
+    @menu = menu
+  end
+
+  def cost(*orders)
+    orders.inject(0) do |total_cost, order|
+      total_cost + order.keys.inject(0) {|cost, key| cost + @menu[key]*order[key] }
+    end
+  end
+end
+
+class Restaurant
+  def initialize(menu)
+    @menu = menu
+  end
+
+  def cost(*orders)
+    orders.inject(0) do |total_order, order|
+    	order.each do |item, quantity| 
+    		total_order += menu[item.to_sym] * quantity 
+    	end
+    end
+  end
+end
+

@@ -1,0 +1,12 @@
+def kaprekar?(k)
+  length_of_k = k.to_s.size
+  k_to_power_of_two  = k ** 2
+  k_to_power_of_two = (k ** 2).to_s
+
+  puts k_to_power_of_two[0..length_of_k-1]
+  puts k_to_power_of_two[length_of_k..-1]
+  k == k_to_power_of_two[0..length_of_k-1].join("").to_i + k_to_power_of_two[length_of_k..-1].join("").to_i
+
+end
+
+puts kaprekar? 297
