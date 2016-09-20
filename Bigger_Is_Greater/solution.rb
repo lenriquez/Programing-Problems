@@ -1,61 +1,37 @@
-
+#!/usr/bin/ruby
+#https://www.hackerrank.com/challenges/bigger-is-greater
    
-# Hash with letter so I can get the lexicographically answer
-$alphabet = {
-	a: 1,
-	b: 2,
-	c: 3, 
-	d: 4,
-	e: 5, 
-	f: 6,
-	g: 7,
-	h: 8,
-	i: 9,
-	j: 10,
-	k: 11,
-	l: 12,
-	m: 13,
-	n: 14,
-	o: 15,
-	p: 16,
-	q: 17,
-	r: 18,
-	s: 19,
-	t: 20,
-	u: 21,
-	v: 22,
-	w: 23,
-	x: 24,
-	y: 25,
-	z: 26
-}
-
 # Find the first letter with an small right neighbor compare to itself
 # return its index
-def find_small_neighbors problem
-  tmp_char = nil
-  index = 0
-  problem.each_char do |char|
-    unless tmp_char
-      tmp_char = char
-      next 
-    end
-    break if $alphabet[tmp_char.to_sym] > $alphabet[char.to_sym]
-    index += 1
+# Find longest non-increasing suffix and Identify pivot
+def find_small_neighbors array
+  tmp_char = array[0]
+  array.each_with_index do |char, index|
+    next if index === 0
+    return index if tmp_char > char 
+    tmp_char = char
   end
-  return index
+  return false;
 end
 
-# Search left to right, swapping the bigger number find the biggest number 
-def apply_solution problem
-  # Reverse the String to iterate right to left
-  index = find_small_neighbors problem.reverse!
+# Search left to right, swapping the bigger number find the biggest number
+# and sort the left size  
+def apply_solution array
 
-  return "no answer" if index == (problem.size - 1)
+  # Reverse the String to iterate right to left JUST because is easier :P
+  index = find_small_neighbors array.reverse!
+  
+  return "no answer" unless index
 
-  first_half = problem.slice!(0..index).chars.sort.join
-  first_half << problem
-  return problem.reverse!
+  # Find rightmost successor to pivot in the suffix
+  sec_index = array.index(array.slice(0..index).select{ |num| num > array[index] }.sort.first)
+  # Swap with pivot
+  array[index], array[sec_index] = array[sec_index], array[index]
+
+  # Reverse the suffix REVERT rathern than sort
+  solution = array.slice!(0..index-1).sort.join.reverse
+  solution << array.join
+  return solution.reverse
 end
 
 # Get Data 
@@ -63,7 +39,7 @@ def main
   test_cases = gets.chomp
   test_cases = test_cases.to_i if test_cases
   test_cases.times do
-    problem = gets.chomp
+    problem = gets.chomp.split("")
     puts apply_solution problem if problem 
   end
 end
