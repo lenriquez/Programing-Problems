@@ -1,3 +1,5 @@
+#https://www.hackerrank.com/challenges/what-type-of-triangle
+
 begin
   cases = gets.chomp.strip.to_i
 rescue
