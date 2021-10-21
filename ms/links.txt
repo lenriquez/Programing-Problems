@@ -1,3 +1,48 @@
 
-
+TO READ
 https://www.educative.io/courses/grokking-the-object-oriented-design-interview/RMlM3NgjAyR
+https://designsystemsrepo.com/articles/
+https://www.thebalancecareers.com/what-is-the-star-interview-response-technique-2061629
+
+==============================================================================================
+From: https://fernaall.medium.com/modern-interview-cycle-for-software-engineers-ae44a2e2f9ee
+
+Review implementation of
+Hash and Cache
+Tries Tree
+    -> Check video
+
+BFS  and DFS
+    inorder
+    postorder
+    preorder
+
+Graphs
+    implementation with a matrix and advantages of each
+    The first thing you should do with any exercise is to analyze if it could be solved using a graph first.
+
+==============================================================================================
+https://www.pcworld.com/article/440247/nadella-on-microsofts-culture-change-nothing-is-off-the-table.html
+
+
+
+==============================================================================================
+I don't know
+https://medium.com/ci-t/the-complete-guide-about-design-systems-engineering-cd332cf520f2
+
+
+==============================================================================================
+Monday
+
+Review again 1.4 the last solution sound interesting 
+1.5 Problem with the definition did not need a hash table
+
+Martes
+- Me salte 1.7 y 1.9 y Linked List
+
+
+
+=============================================================================================================
+
+
+

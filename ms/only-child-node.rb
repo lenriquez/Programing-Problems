@@ -1,4 +1,3 @@
-
 class RepeatedValueException < StandardError
 end
 
@@ -27,13 +26,13 @@ class PositiveIntegerNode
   end
 end
 
-def create_from_array(array, start, ends )
+def create_from_array(array, start, ends)
   # Preconditions validations
   return nil if start >= ends
-  return nil if array.size == 0
+  return nil if array.empty?
 
   # Gather index
-  count = start + ((ends - start)/2)
+  count = start + ((ends - start) / 2)
   count = count.floor
 
   # Create Node
@@ -41,25 +40,21 @@ def create_from_array(array, start, ends )
   node.left = create_from_array(array, start, count)
   node.right = create_from_array(array, count + 1, ends)
 
-  return node
+  node
 end
-
 
 def only_child_nodes(node)
-  if node.left != nil && node.right == nil || node.left == nil && node.right != nil
-    return  node.value
-  end
+  return node.value if !node.left.nil? && node.right.nil? || node.left.nil? && !node.right.nil?
 
-  res = ""
-  res += ", #{only_child_nodes(node.left)}"  if node.left
-  res += ", #{only_child_nodes(node.right)}"  if node.right
-  return res
+  res = ''
+  res += ", #{only_child_nodes(node.left)}" if node.left
+  res += ", #{only_child_nodes(node.right)}" if node.right
+  res
 end
-
 
 def main
   node = nil
-  arr = [1,2,3,4,5]
+  arr = [1, 2, 3, 4, 5, 6]
 
   # Create Tree
   arr.each do |n|
@@ -67,10 +62,7 @@ def main
   end
   p node
 
-
   p only_child_nodes(node)[2..-1]
 end
 
 main
-
-
