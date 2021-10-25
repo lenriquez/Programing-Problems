@@ -42,19 +42,28 @@ def create_from_array(array, start, ends)
 
   node
 end
+# ==============================================================================
 
-def only_child_nodes(node)
-  return node.value if !node.left.nil? && node.right.nil? || node.left.nil? && !node.right.nil?
-
-  res = ''
-  res += ", #{only_child_nodes(node.left)}" if node.left
-  res += ", #{only_child_nodes(node.right)}" if node.right
-  res
+def check_balanced(node)
+  max(node) - min(node) <= 1
 end
 
+def max(node)
+  return 0 if node.nil?
+
+  [max(node.right), max(node.left)].max + 1
+end
+
+def min(node)
+  return 0 if node.nil?
+
+  [max(node.right), max(node.left)].max + 1
+end
+
+# ==============================================================================
 def main
   node = nil
-  arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  arr = [1, 2, 3, 4, 5, 6]
 
   # Create Tree
   arr.each do |n|
@@ -62,7 +71,7 @@ def main
   end
   p node
 
-  p only_child_nodes(node)[2..-1]
+  p check_balanced(node)
 end
 
 main

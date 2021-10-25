@@ -43,18 +43,21 @@ def create_from_array(array, start, ends)
   node
 end
 
-def only_child_nodes(node)
-  return node.value if !node.left.nil? && node.right.nil? || node.left.nil? && !node.right.nil?
+# ==============================================================================
 
-  res = ''
-  res += ", #{only_child_nodes(node.left)}" if node.left
-  res += ", #{only_child_nodes(node.right)}" if node.right
-  res
+def validate_bst(node)
+  return true if n == node
+
+  return false if !min && n.data <= min || !max && n.data > max
+
+  validate_bst(node.left, min, n.data) && validate_bst(node.right, n.data, max)
 end
+
+# ==============================================================================
 
 def main
   node = nil
-  arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  arr = [1, 2, 3, 4, 5, 6]
 
   # Create Tree
   arr.each do |n|
@@ -62,7 +65,7 @@ def main
   end
   p node
 
-  p only_child_nodes(node)[2..-1]
+  p validate_bst(node)
 end
 
 main
